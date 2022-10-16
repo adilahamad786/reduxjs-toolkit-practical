@@ -1,6 +1,6 @@
 import classes from './Counter.module.css';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { counterActions } from '../store';
+import { counterActions } from '../store/counter-slice';
 
 const Counter = () => {
   const counter = useSelector(state => state.counter.counter);
@@ -12,7 +12,7 @@ const Counter = () => {
   }
 
   const incrementby5 = () => {
-    dispatch(counterActions.increase(5))
+    dispatch(counterActions.increase(5)) // Internally return -> { type : "Some_Unique_Identifier", payload : 5} 
   }
 
   const decrement = () => {
